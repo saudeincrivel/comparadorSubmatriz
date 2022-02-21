@@ -3,10 +3,12 @@ import ctypes
 from ctypes import CDLL, POINTER, c_int32
 from ctypes import c_size_t, c_double
 import numpy as np
+import os 
 
 
 
-DLLPATH = 'C:\\Users\\User\\Documents\\Programas_python\\comparator_teste\\dll\\projetocdll.dll';
+
+DLLPATH =  os.getcwd() + "\dll\projetocdll.dll";
 
 def buildArray(padrao ):
     splitado = padrao.split();
@@ -83,3 +85,4 @@ def teste():
 
 # teste();
  
+
