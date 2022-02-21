@@ -7,6 +7,8 @@ Pass as parameters (Big Image Path, Small Image path)...
 
 
 matchImages() will return an np.array of pairs of integers 
-indicating the coordinates where the small image occurs on the larger one.
+indicating the coordinates(upper-left corner)
+where the small image occurs on the larger one.
+
 
 Current maximum resolution size : 4k Ultra HD
