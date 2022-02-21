@@ -2,14 +2,16 @@ import os
 import wrapper.wrapper as wrapper
 import imageMatcher
 
-#to get the current working directory
- 
+
+bigimage = "BIG_IMAGE_PATH";
+smallimage = "SMALL_IMAGE_PATH";
+
 def main():
     # EXAMPLE:
-    x = imageMatcher.matchImages("BIG_IMAGE_PATH", "SMALL_IMAGE_PATH");
-    print("Occurrences :");
-    print ( x);
+    # x = imageMatcher.matchImages(bigimage, smallimage);
+    # print("Occurrences :");
+    # print ( x);
     return None;
  
 
-# main();
+main();

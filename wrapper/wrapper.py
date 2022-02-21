@@ -6,8 +6,6 @@ import numpy as np
 import os 
 
 
-
-
 DLLPATH =  os.getcwd() + "\dll\projetocdll.dll";
 
 def buildArray(padrao ):
@@ -21,6 +19,8 @@ def buildArray(padrao ):
 
 
 def comparator (a , b ):
+    a = a.astype(dtype=np.int32, order='C', casting='unsafe', subok=True, copy=False)
+    b = b.astype(dtype=np.int32, order='C', casting='unsafe', subok=True, copy=False)
     ND_POINTER_2 = np.ctypeslib.ndpointer(dtype=np.int32, 
                                       ndim=2,
                                       flags="C");
@@ -32,28 +32,14 @@ def comparator (a , b ):
 
     mylib.match.argtypes = [ND_POINTER_2, ND_POINTER_2 , c_size_t, c_size_t, c_size_t, c_size_t];
     mylib.match.restype = ctypes.c_char_p;
-    # mylib.mostra.restype = None;
-
+    
     [n,m] = a.shape;
     [rows_b, cols_b] = b.shape;
 
     if (rows_b > n or cols_b > m) :
         return buildArray("0 0");
     
-    # print(f'dims ::: {n} {m}');
-    
-    A = np.arange(1, n*m+1, 1, dtype=np.int32).reshape(n, m, order="C");
-    B = np.arange(1, rows_b*cols_b+1, 1, dtype=np.int32).reshape(rows_b,cols_b , order="C");
-
-    for i in range (n):
-        for j in range (m):
-            A[i][j] = a[i][j];
-
-    for i in range (rows_b):
-        for j in range ( cols_b):
-            B[i][j] = b[i][j];
-
-    resposta = mylib.match(A, B,  n, m , rows_b, cols_b);
+    resposta = mylib.match(a, b,  n, m , rows_b, cols_b);
     return buildArray(resposta.decode("utf-8"));
 
 
@@ -81,8 +67,6 @@ def teste():
     print("Pares ocurrencias :");
     print ( ocurrencias);
     return None;
-
-
 # teste();
  
 
