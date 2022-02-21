@@ -19,9 +19,7 @@ def buildArray(padrao ):
 
 
 def comparator (a , b ):
-    a = a.astype(dtype=np.int32, order='C', casting='unsafe', subok=True, copy=False)
-    b = b.astype(dtype=np.int32, order='C', casting='unsafe', subok=True, copy=False)
-    ND_POINTER_2 = np.ctypeslib.ndpointer(dtype=np.int32, 
+    ND_POINTER_2 = np.ctypeslib.ndpointer(dtype=np.uint8, 
                                       ndim=2,
                                       flags="C");
 
