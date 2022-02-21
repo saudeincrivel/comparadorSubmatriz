@@ -1,4 +1,3 @@
-from turtle import onscreenclick
 import wrapper.wrapper as wrapper
 import numpy as np
 import pyautogui
